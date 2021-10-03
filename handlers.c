@@ -13,6 +13,7 @@
  * Return: If a flag character is matched - its corresponding value.
  *         Otherwise - 0.
  */
+
 unsigned char handle_flags(const char *flag)
 {
 	int i, j;
