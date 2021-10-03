@@ -81,10 +81,10 @@ int _printf(const char *format, ...)
 	va_list args;
 	int ret;
 
-	if (format == Null)
+	if (format == null)
 		return (-1);
 	output = init_buffer();
-	if (output == Null)
+	if (output == null)
 		return (-1);
 
 	va_start(args, format);
