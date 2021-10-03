@@ -4,7 +4,7 @@ A formatted output conversion C program was completed as part of the low-level p
 
 ## Dependencies 👫
 
-The ```_printf``` function was coded on an Ubuntu 14.04 LTS machine with ```gcc``` version 4.8.4.
+The ```_printf``` function was coded on an Ubuntu 20.04 LTS machine with ```gcc``` version 4.8.4.
 
 ## Usage
 
