@@ -68,7 +68,7 @@ unsigned int convert_s(va_list args, buffer_t *output,
 unsigned int convert_di(va_list args, buffer_t *output,
 		unsigned char flags, char wid, char prec, unsigned char len);
 unsigned int convert_x(va_list args, buffer_t *output,
-		unsigned char flags, char wid, char prec, unsigned char len);
+		unsigned char flags, int wid, int prec, unsigned char len);
 unsigned int convert_percent(va_list args, buffer_t *output,
 		unsigned char flags, char wid, char prec, unsigned char len);
 unsigned int convert_b(va_list args, buffer_t *output,
