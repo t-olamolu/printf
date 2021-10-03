@@ -1,0 +1,8 @@
+*~
+#*#
+betty
+tests/
+extras/
+*.org
+*.out
+*.o
