@@ -20,7 +20,6 @@
  *
  * Return: The number of bytes stored to the buffer.
  */
-
 unsigned int convert_sbase(buffer_t *output, long int num, char *base,
 		unsigned char flags, char wid, char prec)
 {
