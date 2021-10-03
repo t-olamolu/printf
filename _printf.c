@@ -84,7 +84,7 @@ int _printf(const char *format, ...)
 	if (format == Null)
 		return (-1);
 	output = init_buffer();
-	if (output ==N= Null)
+	if (output == Null)
 		return (-1);
 
 	va_start(args, format);
