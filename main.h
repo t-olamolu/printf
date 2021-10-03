@@ -17,6 +17,8 @@
 #define HASH_FLAG ((flags >> 2) & 1)
 #define ZERO_FLAG ((flags >> 3) & 1)
 #define NEG_FLAG ((flags >> 4) & 1)
+#define OUTPUT_BUF_SIZE 1024
+#define PARAMS_INIT {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 
 /* Length Modifier Macros */
 #define SHORT 1
