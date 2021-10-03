@@ -1,0 +1,80 @@
+.TH man 3 "01 October 2021" "ALX-HOLBERTON" "CUSTOM _PRINTF"
+.SH _PRINTF()
+
+.SH NAME
+.B printf
+
+.SH SYNOPSIS
+.B #include "main.h"
+
+.B int _printf(const char *format, ...);
+
+.SH DESCRIPTION
+- The function _printf produces a standard output according to a format.
+- Much like the C standard library function printf, it can receive a variable number of arguments.
+
+.SH Format of the format string
+- The format string is a character string, beginning and ending in its initial shift state.
+.TP
+.SH Flag characters
+The character % is followed by zero or more of the following flags:
+.B %c
+ARGUMENT prints a character
+.br
+.B %%
+ARGUMENT prints a %
+.br
+.B  %d & %i
+ARGUMENT prints an integer
+.br
+.B %s
+ARGUMENT prints a string
+.br
+.B %b
+ARGUMENT prints a binary, custom specifier
+.br
+.B %o
+ARGUMENT prints an octal number
+.br
+.B  %x
+ARGUMENT prints a hexadecimal number
+.br
+.B %X
+ARGUMENT prints a hexadecimal in uppercase
+.br
+.B %u
+ARGUMENT prints a character
+.br
+.B %S
+ARGUMENT prints a %
+.br
+.B  %p
+ARGUMENT prints an address
+.br
+.B %r
+ARGUMENT prints a string in reverse
+.br
+.B %R
+ARGUMENT prints a string in rot13
+.br
+.B #
+The value should be converted to an "alternate form". For o conversions, the first character of the output string is made zero (by prefixing a 0 if it was not zero already). For x and X conversions, a nonzero result has the string "0x" (or "0X" for X conversions) prepended to it. For a, A, e, E, f, F, g, and G conversions, the result will always contain a decimal point, even if no digits follow it (normally, a decimal point appears in the results of those conversions only if a digit follows). For g and G conversions, trailing zeros are not removed from the result as they would otherwise be. For other conversions, the result is undefined.
+.br
+.B 0
+The value should be zero padded. For d, i, o, u, x, X, a, A, e, E, f, F, g, and G conversions, the converted value is padded on the left with zeros rather than blanks. If the 0 and - flags both appear, the 0 flag is ignored. If a precision is given with a numeric conversion (d, i, o, u, x, and X), the 0 flag is ignored. For other conversions, the behavior is undefined.
+.br
+.B ' '(space)
+A blank should be left before a positive number (or empty string) produced by a signed conversion.
+
+.SH SEE ALSO
+.I printf(1), asprintf(3), puts(3), dprintf(3), scanf(3), setlocale(3), wcrtomb(3), strfromd(3), wprintf(3), locale(5)
+
+.SH BUGS
+.B '-', '+', ' '(space)
+flags work almost flawlessly, but still having issues. Report bugs to https://github.com/t-olamolu/printf.
+
+.SH EXIT STATUS
+Return success unless an invalid option is given or a write or assignment error occurs.
+
+.SH AUTHOR
+Charles Shaldas Homsuk and Temitope Aderemi Olamolu
