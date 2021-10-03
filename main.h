@@ -107,5 +107,6 @@ unsigned int convert_ubase(buffer_t *output, unsigned long int num, char *base,
 
 /* Puts Funtions */
 int _putchar(int c);
+int _puts(char *str);
 
 #endif /* MAIN_H */
