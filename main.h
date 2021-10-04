@@ -37,6 +37,7 @@ typedef struct buffer_s
 
 /**
  * struct converter_s - A new type defining a converter struct.
+ * int _printf - An integer variable.
  * @specifier: A character representing a conversion specifier.
  * @func: A pointer to a conversion function corresponding to specifier.
  */
@@ -87,6 +88,14 @@ unsigned int convert_r(va_list args, buffer_t *output,
 		unsigned char flags, int wid, int prec, unsigned char len);
 unsigned int convert_R(va_list args, buffer_t *output,
 		unsigned char flags, int wid, int prec, unsigned char len);
+
+/**
+ * handle_specifiers - Matches a conversion specifier with
+ *			a corresponding conversion function.
+ * handle_flags - Matches flags with corresponding values.
+ * @flags: A character representing a flag.
+ * @index: An index counter for the original format string.
+ */
 
 /* Handlers */
 unsigned char handle_flags(const char *flags, char *index);
