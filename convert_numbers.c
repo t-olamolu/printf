@@ -5,8 +5,6 @@
 
 #include "main.h"
 
-	 
-
 /**
  * convert_di - Converts an argument to a signed int and
  *              stores it to a buffer contained in a struct.
