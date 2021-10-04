@@ -120,10 +120,10 @@ int _printf(const char *format, ...);
 
 /* base converters */
 unsigned int convert_sbase(buffer_t *output, long int num, char *base,
-                unsigned char flags, int wid, int prec);
+		unsigned char flags, int wid, int prec);
 unsigned int convert_ubase(buffer_t *output,
-                unsigned long int num, char *base,
-                unsigned char flags, int wid, int prec);
+		unsigned long int num, char *base,
+		unsigned char flags, int wid, int prec);
 
 
 #endif /* MAIN_H */

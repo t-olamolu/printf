@@ -17,54 +17,63 @@
 - The format string is a character string, beginning and ending in its initial shift state.
 .TP
 .SH Flag characters
-The character % is followed by zero or more of the following flags:
-.B %c
-ARGUMENT prints a character
+- The character % is followed by zero or more of the following flags:
+.B %c & %u
+- prints a character
 .br
 .B %%
-ARGUMENT prints a %
+- prints a %
 .br
-.B  %d & %i
-ARGUMENT prints an integer
+.B %d & %i
+- prints an integer
 .br
 .B %s
-ARGUMENT prints a string
+- prints a string
 .br
 .B %b
-ARGUMENT prints a binary, custom specifier
+- prints a binary, custom specifier
 .br
 .B %o
-ARGUMENT prints an octal number
+- prints an octal number
 .br
-.B  %x
-ARGUMENT prints a hexadecimal number
+.B %x
+- prints a hexadecimal number
 .br
 .B %X
-ARGUMENT prints a hexadecimal in uppercase
+- prints a hexadecimal in uppercase
 .br
 .B %u
-ARGUMENT prints a character
+- prints a character
 .br
 .B %S
-ARGUMENT prints a %
+- prints a %
 .br
-.B  %p
-ARGUMENT prints an address
+.B %p
+- prints an address
 .br
 .B %r
-ARGUMENT prints a string in reverse
+- prints a string in reverse
 .br
 .B %R
-ARGUMENT prints a string in rot13
+- prints a string in rot13
 .br
 .B #
-The value should be converted to an "alternate form". For o conversions, the first character of the output string is made zero (by prefixing a 0 if it was not zero already). For x and X conversions, a nonzero result has the string "0x" (or "0X" for X conversions) prepended to it. For a, A, e, E, f, F, g, and G conversions, the result will always contain a decimal point, even if no digits follow it (normally, a decimal point appears in the results of those conversions only if a digit follows). For g and G conversions, trailing zeros are not removed from the result as they would otherwise be. For other conversions, the result is undefined.
+- The value should be converted to an "alternate form". For o conversions, the first character of the output string is made zero (by prefixing a 0 if it was not zero already). For x and X conversions, a nonzero result has the string "0x" (or "0X" for X conversions) prepended to it. For a, A, e, E, f, F, g, and G conversions, the result will always contain a decimal point, even if no digits follow it (normally, a decimal point appears in the results of those conversions only if a digit follows). For g and G conversions, trailing zeros are not removed from the result as they would otherwise be. For other conversions, the result is undefined.
 .br
 .B 0
-The value should be zero padded. For d, i, o, u, x, X, a, A, e, E, f, F, g, and G conversions, the converted value is padded on the left with zeros rather than blanks. If the 0 and - flags both appear, the 0 flag is ignored. If a precision is given with a numeric conversion (d, i, o, u, x, and X), the 0 flag is ignored. For other conversions, the behavior is undefined.
+- The value should be zero padded. For d, i, o, u, x, X, a, A, e, E, f, F, g, and G conversions, the converted value is padded on the left with zeros rather than blanks. If the 0 and - flags both appear, the 0 flag is ignored. If a precision is given with a numeric conversion (d, i, o, u, x, and X), the 0 flag is ignored. For other conversions, the behavior is undefined.
 .br
 .B ' '(space)
-A blank should be left before a positive number (or empty string) produced by a signed conversion.
+- A blank should be left before a positive number (or empty string) produced by a signed conversion.
+
+.SH Length modifier
+- Here, "integer conversion" stands for d,i,o,u,x, or X conversion
+.br
+
+.SH Conversion specifiers
+- A character that specifies the type of conversion to be applied.
+- The conversion specifiers and their meanings are:
+.br
 
 .SH SEE ALSO
 .I printf(1), asprintf(3), puts(3), dprintf(3), scanf(3), setlocale(3), wcrtomb(3), strfromd(3), wprintf(3), locale(5)
