@@ -5,8 +5,6 @@
 
 #include "main.h"
 
-	 
-
 /**
  * convert_di - Converts an argument to a signed int and
  *              stores it to a buffer contained in a struct.
@@ -50,19 +48,16 @@ unsigned int convert_di(va_list args, buffer_t *output,
 		count += (d < 0) ? 1 : 0;
 		count += (PLUS_FLAG == 1 && d >= 0) ? 1 : 0;
 		count += (SPACE_FLAG == 1 && d >= 0) ? 1 : 0;
-
-		/* Handle plus flag when zero flag is active */
+	        /* Handle plus flag when zero flag is active */
 		if (ZERO_FLAG == 1 && PLUS_FLAG == 1 && d >= 0)
 			ret += _memcpy(output, &plus, 1);
 		/*Print negative sign when zero flag is active */
 		if (ZERO_FLAG == 1 && d < 0)
 			ret += _memcpy(output, &neg, 1);
-
 		pad = (ZERO_FLAG == 1) ? '0' : ' ';
 		for (wid -= count; wid > 0; wid--)
 			ret += _memcpy(output, &pad, 1);
 	}
-
 	/* Print negative sign when zero flag is not active */
 	if (ZERO_FLAG == 0 && d < 0)
 		ret += _memcpy(output, &neg, 1);
