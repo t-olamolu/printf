@@ -6,6 +6,7 @@
 
 #include "main.h"
 
+
 /**
  * convert_c - Converts an argument to an unsigned char and
  *             stores it to a buffer contained in a struct.
@@ -18,31 +19,20 @@
  *
  * Return: The number of bytes stored to the buffer.
  */
-
 unsigned int convert_c(va_list args, buffer_t *output,
-		unsigned char flags, char wid, char prec, unsigned char len)
+		unsigned char flags, int wid, int prec, unsigned char len)
 {
-	char c, width = ' ';
+	char c;
 	unsigned int ret = 0;
-
-	c = va_arg(args, int);
 
 	(void)prec;
 	(void)len;
 
-	if (NEG_FLAG == 0)
-	{
-		for (; wid > 1; wid--)
-			ret += _memcpy(output, &width, 1);
-	}
+	c = va_arg(args, int);
 
+	ret += print_width(output, ret, flags, wid);
 	ret += _memcpy(output, &c, 1);
-
-	if (NEG_FLAG == 1)
-	{
-		for (wid -= ret; wid > 0; wid--)
-			ret += _memcpy(output, &width, 1);
-	}
+	ret += print_neg_width(output, ret, flags, wid);
 
 	return (ret);
 }
@@ -60,28 +50,18 @@ unsigned int convert_c(va_list args, buffer_t *output,
  * Return: The number of bytes stored to the buffer (always 1).
  */
 unsigned int convert_percent(va_list args, buffer_t *output,
-		unsigned char flags, char wid, char prec, unsigned char len)
+		unsigned char flags, int wid, int prec, unsigned char len)
 {
-	char percent = '%', width = ' ';
+	char percent = '%';
 	unsigned int ret = 0;
 
 	(void)args;
 	(void)prec;
 	(void)len;
 
-	if (NEG_FLAG == 0)
-	{
-		for (; wid > 1; wid--)
-			ret += _memcpy(output, &width, 1);
-	}
-
+	ret += print_width(output, ret, flags, wid);
 	ret += _memcpy(output, &percent, 1);
-
-	if (NEG_FLAG == 1)
-	{
-		for (wid -= ret; wid > 1; wid--)
-			ret += _memcpy(output, &width, 1);
-	}
+	ret += print_neg_width(output, ret, flags, wid);
 
 	return (ret);
 }
@@ -99,9 +79,9 @@ unsigned int convert_percent(va_list args, buffer_t *output,
  * Return: The number of bytes stored to the buffer.
  */
 unsigned int convert_p(va_list args, buffer_t *output,
-		unsigned char flags, char wid, char prec, unsigned char len)
+		unsigned char flags, int wid, int prec, unsigned char len)
 {
-	char *null = "(nil)", width = ' ';
+	char *null = "(nil)";
 	unsigned long int address;
 	unsigned int ret = 0;
 
@@ -112,15 +92,9 @@ unsigned int convert_p(va_list args, buffer_t *output,
 		return (_memcpy(output, null, 5));
 
 	flags |= 32;
-
 	ret += convert_ubase(output, address, "0123456789abcdef",
 			flags, wid, prec);
-
-	if (NEG_FLAG == 1)
-	{
-		for (wid -= ret; wid > 0; wid--)
-			ret += _memcpy(output, &width, 1);
-	}
+	ret += print_neg_width(output, ret, flags, wid);
 
 	return (ret);
 }
