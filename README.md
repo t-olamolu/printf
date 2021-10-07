@@ -25,7 +25,7 @@ int main(void)
 
 ### Compilation:
 ```bash
-$ gcc *.c -o tester
+gcc -Wall -Wextra -Werror -pedantic -std=gnu89 -Wno-format *.c
 ```
 
 ### Output:
